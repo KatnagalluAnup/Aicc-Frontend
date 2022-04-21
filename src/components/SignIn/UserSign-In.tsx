@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../redux/actions/authActions";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import authReducer from "../../redux/reducers/authReducer";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -40,13 +42,21 @@ const Wrapper = styled.div`
   }
 `;
 
+interface AuthState {
+  authentication: typeof authReducer;
+}
+
 const SignIn: React.FC = () => {
+  const auth: any = useSelector((state: AuthState) => state.authentication);
+  let form = {email: '', password: ''}
   const [userData, setUserData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSignIn = async (e: any) => {
-    dispatch(authenticate(userData));
-    navigate("/plans");
+    e.preventDefault();
+    setUserData(form = userData);
+    dispatch(authenticate(form));
+    auth.token && navigate("/plans");
   };
 
   return (
