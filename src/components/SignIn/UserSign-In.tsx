@@ -3,7 +3,7 @@ import { Button } from "@veneer/core";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../redux/actions/authActions";
-import { http } from "../../http-service";
+import { useDispatch } from "react-redux";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -43,12 +43,10 @@ const Wrapper = styled.div`
 const SignIn = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-  const handleSignIn = (e: any) => {
-    // http().post('/auth', userData)
-    // .then((response)=> console.log(response))
-    // .catch((err)=> console.log(err))
-   authenticate(userData);
-    // navigate("/plans");
+  const dispatch = useDispatch();
+  const handleSignIn = async (e: any) => {
+    dispatch(authenticate(userData));
+    navigate("/plans");
   };
 
   return (
@@ -78,7 +76,6 @@ const SignIn = () => {
             type="password"
             placeholder=" "
             onChange={(event) => {
-              console.log(userData);
               setUserData({
                 email: userData.email,
                 password: event.target.value,

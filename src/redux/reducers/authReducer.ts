@@ -1,11 +1,11 @@
-import { AUTHENTICATE } from "../actionTypes";
+import { AUTHENTICATE, DEAUTHENTICATE } from "../actionTypes";
 
 const authReducer = (state = { token: null }, action: any) => {
   switch (action.type) {
     case AUTHENTICATE:
       return { ...state, token: action.payload };
-    // case DEAUTHENTICATE:
-    //   return { token: null };
+    case DEAUTHENTICATE:
+      return { token: null };
     default:
       return state;
   }
