@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@veneer/core";
 import styled from "styled-components";
@@ -6,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: #eee;
+  text-align: center;
 
   .btn {
     position: absolute;
@@ -15,17 +16,18 @@ const Wrapper = styled.div`
   }
 `;
 
-function SampleComponent() {
+const AuthSignIn: React.FC = () => {
   const navigate = useNavigate();
 
   const btnClick = () => {
-    navigate("/page2")
-  }
+    navigate("/plans")
+  };
+
   return (
     <Wrapper>
-      <Button className='btn' onClick={btnClick}>Go to Page 2</Button>
+      <Button className='btn' onClick={btnClick}>Sign in with HP Account</Button>
     </Wrapper>
   );
 }
 
-export default SampleComponent;
+export default AuthSignIn;
