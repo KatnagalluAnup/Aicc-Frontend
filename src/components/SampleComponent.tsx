@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@veneer/core";
 import styled from "styled-components";
+import Sidemenu from './sidemenu/Sidemenu'
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -23,6 +24,7 @@ function SampleComponent() {
   }
   return (
     <Wrapper>
+      <Sidemenu />
       <Button className='btn' onClick={btnClick}>Go to Page 2</Button>
     </Wrapper>
   );
