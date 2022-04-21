@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const SignIn = () => {
+const SignIn: React.FC = () => {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -82,6 +82,8 @@ const SignIn = () => {
               });
             }}
             value={userData.password}
+            autoComplete='true'
+            required
           />
           <Button type="submit" className="btn">
             Sign In

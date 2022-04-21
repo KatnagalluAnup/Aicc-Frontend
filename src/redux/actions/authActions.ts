@@ -1,4 +1,3 @@
-// import { useN } from "react-router-dom";
 import { http } from "../../http-service";
 import { AUTHENTICATE, DEAUTHENTICATE } from "../actionTypes";
 
@@ -18,13 +17,6 @@ export const authenticate = (action: any) => (dispatch: any) => {
     })
     .catch((err) => console.log(err));
 };
-
-// gets the token from the Token and saves it in the store
-// export const reauthenticate = (token: any) => {
-//   return (dispatch: any) => {
-//     dispatch({ type: AUTHENTICATE, payload: token });
-//   };
-// };
 
 // removing the token
 export const deauthenticate = () => {

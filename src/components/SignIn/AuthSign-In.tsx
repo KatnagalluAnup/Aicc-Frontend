@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const AuthSignIn = () => {
+const AuthSignIn: React.FC = () => {
   const navigate = useNavigate();
 
   const btnClick = () => {
