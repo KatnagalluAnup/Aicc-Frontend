@@ -16,6 +16,7 @@
     "@veneer/styles": "file:./external-lib/veneer/veneer-styles-3.40.1.tgz",
     "@veneer/theme": "file:./external-lib/veneer/veneer-theme-3.41.0.tgz",
     "@veneer/tokens": "file:./external-lib/veneer/veneer-tokens-3.40.1.tgz",
+    "axios": "^0.26.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
@@ -28,7 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=8080 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
