@@ -34,7 +34,7 @@ const AuthSignIn: React.FC = () => {
     dispatch(authenticate(auth.token));
     const apiUrl = process.env.REACT_APP_PUBLIC_BACKEND_URL
     window.location.href = `${apiUrl}/auth?next=${window.location.origin}/auth/in?token=`
-    navigate("/plans")
+    auth.token && navigate("/plans")
   };
 
   return (
